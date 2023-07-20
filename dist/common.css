@@ -1,0 +1,21 @@
+.swiper {
+	width: 600px;
+	height: 300px;
+    }
+
+.swiper-slide div{
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.swiper-box{
+	display: flex;
+	flex-direction: column;
+}
+.swiper-parent{
+	flex: 1;
+}
+.form-box{
+	width: 500px;
+}
