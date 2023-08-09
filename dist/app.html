@@ -3,79 +3,133 @@
 <head>
   <meta charset="UTF-8">
   <style>
+    body {
+      background-color: #222;
+      color: #fff;
+      font-weight: 400;
+      font-size: 2vw;
+      height: 100vh;
+      box-sizing: border-box;
+      letter-spacing: 6px;
+      margin: 0;
+      line-height: 1.2;
+    }
+    .container {
+	display: flex;
+	flex-direction: column;
+	height: max-content;
+	overflow: scroll;
+	height: 300vh;
+	background-color: silver;
+	display: flex;
+	align-items: center; /* 横方向を中央揃え */
+	padding: 10px; /* 内側の余白を少し減らす */
+    }
+    .title {
+      text-transform: uppercase;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	font-family: "Khula", sans-serif;
+    }
 
-body {
-        background-color: #222;
-        color: #fff;
-        font-weight: 400;
-        font-size: 2vw;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        text-transform: uppercase;
-        font-family: "Khula", sans-serif;
-        height: 100vh;
-        box-sizing: border-box;
-        letter-spacing: 6px;
-        margin: 0;
-        line-height: 1.2;
-      }
 
-      span {
-        display: inline-block;
-      }
+    .animate-me {
+      display: inline-block;
+      opacity: 0; /* 初期状態は不透明度0（非表示） */
+    }
+
+    form {
+	padding: 90px;
+	font-size: 90%;
+      display: flex;
+      flex-direction: column;
+	background-color: rgb(135, 135, 135);
+    }
+
+    input, textarea, button {
+      margin-bottom: 10px;
+      padding: 5px;
+      font-size: 1.5vw;
+      border: 1px solid rgb(77, 77, 77); /* フォームの枠線を黒に設定 */
+	background-color: transparent;
+      color: #000; /* フォームのテキストカラーを黒に設定 */
+    }
+
+    button {
+      cursor: pointer;
+      width: 100px;
+    }
+    .left-align {
+	contain: layout;
+	display:flex
+    }
+    .left-align>span{
+	display: inline-block;
+	width: 160px;
+    }
+    .left-align>input{
+	width: 200px;
+    }
+    .submit-button {
+	margin-top: 20px;
+	position: relative;
+	left: 123px;
+    }
+    
   </style>
 </head>
 <body>
-	<div>
-		<div class="animate-me">
-		  letterize.js&anime.js
-		</div>
-		<div class="animate-me">
-		  anime.js&letterize.js
-		</div>
-		<div class="animate-me">
-		  letterize.js&anime.js
-		</div>
-		<div class="animate-me">
-		  anime.js&letterize.js
-		</div>
-		<div class="animate-me">
-		  letterize.js&anime.js
-		</div>
-		<div class="animate-me">
-		  anime.js&letterize.js
-		</div>
-		<div class="animate-me">
-		  letterize.js&anime.js
-		</div>
-		<div class="animate-me">
-		  anime.js&letterize.js
-		</div>
-		<div class="animate-me">
-		  letterize.js&anime.js
-		</div>
-		<div class="animate-me">
-		  anime.js&letterize.js
-		</div>
-		<div class="animate-me">
-		  letterize.js&anime.js
-		</div>
-		<div class="animate-me">
-		  anime.js&letterize.js
-		</div>
-		<div class="animate-me">
-		  letterize.js&anime.js
-		</div>
-		<div class="animate-me">
-		  anime.js&letterize.js
-		</div>
+  <div class="container">
+	<div class="title">
+		<!-- アニメーションを追加したい要素にspanを設定 -->
+		<span class="animate-me">Fukusaki </span>
+		<span class="animate-me"> is  </span>
+		<span class="animate-me">connect form</span>
 	    </div>
+	    <div class="content">
+		<form>
+			<label class="left-align">
+				<span>Name</span>
+				<input type="text" >
+			</label>
+			<label class="left-align">
+				<span>Mail</span>
+				<input type="email" >
+			</label>
+			<label class="left-align">
+				<span>Tel</span>
+				<input type="tel" ></label>
+			<label class="left-align">
+				<span>Messege</span>
+				<textarea ></textarea></label>
+			<button class="submit-button" type="submit">send</button>
+			</form>
+
+	    </div>
+  </div>	
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script>
+   
+   anime.timeline({loop: true})
+  .add({
+	targets: '.animate-me', // animate-meクラスを持つ要素を対象にする
+      opacity: 1, // 不透明度を1（完全に表示）にする
+      translateY: [-20, 0], // 上方向から下がってくるように移動
+      easing: 'easeInOutQuad', // イージング関数（アニメーションの速さの変化を指定）
+      delay: anime.stagger(200), // スタッガードなアニメーション（遅延効果）を設定
+  }).add({
+	targets: '.animate-me', // animate-meクラスを持つ要素を対象にする
+      opacity: 0, // 不透明度を1（完全に表示）にする
+      translateY: [-20, 0], // 上方向から下がってくるように移動
+      easing: 'easeInOutQuad', // イージング関数（アニメーションの速さの変化を指定）
+      delay: anime.stagger(200), // スタッガードなアニメーション（遅延効果）を設定c
+  });
+    
+    
 
-	
   </script>
 </body>
 </html>
